@@ -1,0 +1,19 @@
+package com.pinhong;
+/**
+ * 
+ * 消息类
+ * 属性:
+		invitation
+		时间 time	内容:content	作者:author	标题:title	回复次数:number	唯一标识:id
+	方法:
+		发表	回复	查询
+ *
+ */
+public class Information {
+	private String time;
+	private String content;
+	private String author;
+	private String title;
+	private int number;
+	private int id;
+}

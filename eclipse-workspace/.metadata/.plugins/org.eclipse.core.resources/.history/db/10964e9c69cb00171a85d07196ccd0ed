@@ -1,0 +1,24 @@
+package com.homework;
+
+
+public class Tetromino {
+	
+	public Cell[]array = new Cell[4];
+	
+	
+	public void print() {
+		
+	}
+	public void drop() {
+		for(int i = 0 ;i < array.length;i++)
+			++array[i].y;
+	}
+	public void moveLeft() {
+		for(int i = 0 ;i < array.length;i++)
+			--array[i].x;
+	}
+	public void moveRight() {
+		for(int i = 0 ;i < array.length;i++)
+			++array[i].x;
+	}
+}

@@ -1,0 +1,12 @@
+package com.pinhong;
+
+public class Test {
+
+	public static void main(String[] args) {
+		User[] users = new User[10];
+		Userdao userdao = new Userdao();
+		userdao.register();
+		userdao.login();
+	}
+
+}

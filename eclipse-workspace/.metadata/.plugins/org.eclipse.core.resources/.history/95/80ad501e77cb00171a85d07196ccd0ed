@@ -1,0 +1,9 @@
+package com.pinhong;
+/**
+ * 
+ * 用户类
+ *
+ */
+public class User {
+
+}

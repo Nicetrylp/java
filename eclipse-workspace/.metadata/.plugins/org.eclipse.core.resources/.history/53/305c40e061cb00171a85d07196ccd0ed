@@ -1,0 +1,41 @@
+package com.lanou3g;
+
+/*
+ * 继承的关键字		extends
+ * 子类继承父类		子类 extends父类
+ * 子类可以继承父类非私有的属性和方法
+ * 
+ */
+
+public class Cat extends Animal {
+	
+	public void showLegNum() {
+		System.out.println(legNumnber);
+	}
+}
+
+class Dog extends Animal{
+	
+}
+
+	// 父类
+class Animal{
+	public  int legNumnber;	// 腿的数量
+	private String color;	// 毛的颜色
+	public int getLegNumnber() {
+		return legNumnber;
+	}
+	public void setLegNumnber(int legNumnber) {
+		this.legNumnber = legNumnber;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public Animal() {
+		super();
+	}
+	
+}

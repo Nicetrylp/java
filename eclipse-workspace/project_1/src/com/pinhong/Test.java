@@ -1,0 +1,10 @@
+package com.pinhong;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Process.start();
+	}
+
+}

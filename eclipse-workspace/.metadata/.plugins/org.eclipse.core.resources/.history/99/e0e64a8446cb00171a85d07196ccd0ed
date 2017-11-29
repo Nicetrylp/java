@@ -1,0 +1,63 @@
+package com.lanou3g;
+/*
+ * super:代表父类
+ * 1.super可以修饰属性, 代表父类的属性		super.xxx
+ * 2.super可以修饰构造方法		super()		代表父类的构造方法
+ * 或者super(...)
+ */
+
+public class SuperDemo {
+	public static void main(String[] args) {
+		Son son = new Son();
+		
+		// 相当于小类型赋值给大类型
+		Father father = new Son();
+		System.out.println(father.money);
+	}
+}
+/*
+ * java类型的默认父类是object
+ * 
+ */
+class Father{
+	public String name;
+	public double money;
+	public String wife;
+	public static String sex;
+	public Father() {
+		super();
+		System.out.println("这里是爹方法");
+	}
+	public Father(double money, String wife) {
+		super();
+		this.money = money;
+		this.wife = wife;
+	}
+	
+}
+
+class Son extends Father{
+	public String wife;
+	public static String sex;
+	
+	// 当有super方法时,必须将super()方法写在第一行
+	// super()可以不写,系统会默认在第一行加上
+	public Son() {
+	//	super();	// 执行父类的构造方法
+		super(100,"name");	// 有参的父类构造方法
+		System.out.println("构造子方法");
+	}
+
+
+	public void showWife(){
+		
+		System.out.println(this.wife);
+		
+		System.out.println(super.wife);
+		
+		// 静态属性也可以使用super   但是建议用类名来点
+		System.out.println(super.sex);
+		
+		System.out.println(this.sex);
+	}
+}

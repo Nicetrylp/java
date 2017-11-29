@@ -1,0 +1,18 @@
+package com.homework;
+
+public class T extends Tetromino  {
+	
+	public T() {
+		super();
+		array[0].x=0;
+		array[0].y=0;
+		array[1].x=1;
+		array[1].y=0;
+		array[2].x=2;
+		array[2].y=0;
+		array[3].x=1;
+		array[3].y=1;
+	}
+	
+}
+ 

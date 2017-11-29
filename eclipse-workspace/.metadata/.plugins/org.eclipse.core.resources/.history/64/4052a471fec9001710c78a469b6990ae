@@ -1,0 +1,121 @@
+package com.nice_try;
+
+import java.util.Scanner;
+
+/**
+ * 2048
+ * 很早之前就听人说这个游戏了,一直想试试
+ * 毕竟这是萌新眼中一个牛逼xx的玩意
+ * 执行顺序: 初始化一个地图 - 随机出现一个元素 - 输出 -键入方向 - 移动 - 输出-出现元素...
+ * 判断条件: 无法出现新元素 -- lose --结束
+ * 判断条件: 求和值为2048 -- win  --继续
+ * 移动: ← 左到右,如果相等,加     如果是0,交换位置
+ */
+public class Game_2018 {
+
+	public static void main(String[] args) {
+		// 2048小游戏初试
+		fun();
+		
+	}
+	
+	public static void fun() {
+		int[][] map = Init();//初始化
+		while(true)
+		{
+		add(map);
+		printArray(map);//输出
+		Move(map);
+		}
+		
+	}
+
+	// 初始化数组
+	public static int[][] Init() {
+		// 用二维数组还是一维数组,可以考虑一下
+		// 一维数组更优化
+		int[][] map= new int[4][4];
+		return map;
+	}
+	// 加入元素
+	public static void add(int[][] map) {
+		while(true) //这里加一个判断条件
+		{
+			int m = (int)(Math.random()*16);
+			if(map[m/4][m%4] == 0) {
+				map[m/4][m%4] = (int)(Math.random()*2+1)*2;
+				break;
+			}
+		}
+	}
+	
+	// 测试输出数组
+	public static void printArray(int[][]map) {
+		for (int[] is : map) {
+			for (int i : is) {
+				System.out.print(i+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	// 键入方向
+	public static char Input() {
+		Scanner scanner = new Scanner(System.in);
+		String string = scanner.nextLine();
+		char cha = string.charAt(0);
+		return cha;
+	}
+	
+	// 移动
+	public static void Move(int[][]map) {
+		char key = Input();
+		switch (key) {
+		case 'w':
+		{
+			break;
+		}
+		case 'a':
+		{
+			moveLeft(map);
+			break;
+		}
+		case 's':
+		{
+			break;
+		}
+		case 'd':
+		{
+			break;
+		}
+		default:
+			break;
+		}
+	}
+	
+	// 向左移动
+	public static void moveLeft(int[][]map) {
+		for(int i=0;i<4;++i) {
+			move(map[i]);				
+		}
+	}
+	public static void move(int[]map) {
+		for(int j = 1;j<4;++j) {
+			int k = j;
+			while(map[k-1]==0) {
+				if(k<=1)
+					{break;}
+				System.out.println(k);
+				k--;
+			}
+			
+			if(map[j] == map[k-1]) {
+				map[k-1]*=2;
+				map[j]=0;
+			}else if(map[k-1]==0) {
+				map[k-1] = map[j];
+				map[j]=0;
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+package com.pinhong;
+
+import java.util.Arrays;
+import java.util.Scanner;
+/**
+ * 
+ * 评论操作类
+ *
+ */
+public class InformationOperation {
+	static Information[]informations = new Information[10];
+	public InformationOperation() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void publishInformation() {
+		Information information = new Information();
+		Information.publish(information);
+		for(int i = 0;i<informations.length;++i) {
+			if(informations[i] == null) {
+				informations[i] = information;
+				return;
+			}
+		}
+		informations = Arrays.copyOf(informations, informations.length+5);
+		informations[informations.length-5] = information;
+	}
+	
+	public static void publishReply() {
+		System.out.println("您要回复的帖子编号是:");
+		Scanner scanner = new Scanner(System.in);
+		int NO = scanner.nextInt();
+		scanner.nextLine();
+		for(int i = 0;i<informations.length;++i) {
+			if(informations[i]!=null && informations[i].getId()==NO) {
+				Reply reply = new Reply();
+				Reply.reply(reply);
+				informations[i].addReply(reply);
+			}
+		}
+	}
+	
+	public static void lookInformation() {
+		System.out.println("你要查看的帖子编号是:");
+		Scanner scanner = new Scanner(System.in);
+		int NO = scanner.nextInt();
+		scanner.nextLine();
+		for(int i = 0;i<informations.length;++i) {
+			if(informations[i]!=null && informations[i].getId()==NO) {
+				informations[i].look();
+			}
+		}
+	}
+}

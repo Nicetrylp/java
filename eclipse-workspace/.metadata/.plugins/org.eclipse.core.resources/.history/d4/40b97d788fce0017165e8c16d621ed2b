@@ -1,0 +1,68 @@
+package com.lanou3g;
+
+import java.util.Random;
+
+/**
+ * 
+ * 随机选人
+ * 
+ * 循环
+ * 从10个里面选出一个,加入队伍
+ * 选过的不在选择
+ * 输出每个数组里的元素
+ *
+ */
+public class Demo_1 {
+
+	public static void main(String[] args) {
+		int[] allPeople = new int[27];
+		for(int i=0;i<27;++i) {
+			allPeople[i] = i+1;
+		}
+		int j=0,k=0,l=0;
+		int[] counter = new int[10];
+		int[] red = new int[5];
+		int[] blue = new int[5];
+		loop: while(true) {
+			int a = new Random().nextInt(27);
+			for(int i=0;i<10;i++) {
+				if(counter[i] == a)
+					continue loop;
+			}
+			counter[j++] = a;
+			if(k<5) {
+				if(l<5) {
+					int b= new Random().nextInt(2);
+					if(b==0)
+						red[k++] = allPeople[a];
+					else
+						blue[l++] = allPeople[a];
+				}
+				else
+					red[k++] =allPeople[a];
+			}else
+				blue[l++]=allPeople[a];
+			
+		print(red, blue);
+		
+			if(k==5&&l==5)
+				break;
+		}
+		
+	}
+
+	public static void print(int []red,int[]blue) {
+		System.out.println("红队------------");
+		for (int i : red) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.println("蓝队------------");
+		for (int i : blue) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		
+	}
+}
+

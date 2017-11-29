@@ -1,0 +1,24 @@
+package com.lanou3g;
+/**
+ * 
+ * 随机选人
+ * 从全班中随机选出10人,加入备选数组
+ * 循环
+ * 从10个里面选出一个,加入队伍
+ * 选过的不在选择
+ * 输出每个数组里的元素
+ *
+ */
+public class Demo_1 {
+
+	public static void main(String[] args) {
+		String[] allPeople = new String[27];
+		for(int i=0;i<27;++i) {
+			allPeople[i] = "i";
+		}
+		for (String string : allPeople) {
+			System.out.println(string);
+		}
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.pinhong;
+/**
+ * 
+ * 登录,注册类
+ *
+ */
+public class Userdao {
+
+}

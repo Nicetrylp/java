@@ -1,0 +1,36 @@
+package com.lanou3g;
+
+import java.util.Scanner;
+
+public class Manage {
+	Book book = new Book();
+	BookStores bookStores = new BookStores();
+	public  void start() {
+		System.out.println("欢迎来到库存管理后台,请输入 您的管理员密码");
+		password();
+	}
+	public void password() {
+		int i = 1;
+		Scanner scanner = new Scanner(System.in);
+		String password = scanner.nextLine();
+		if("123".equalsIgnoreCase(password)) {
+			System.out.println("登录成功");
+		}else {
+			do {
+			System.out.println("密码错误,请重新输入:");
+			password = scanner.nextLine();
+			if("123".equalsIgnoreCase(password)) {
+				System.out.println("登录成功");
+				break;
+			}else {
+				i++;
+			}
+			}while(i<3);
+			if(i==3) {
+				System.out.println("密码错误次数超过三次,退出系统");
+				System.exit(0);
+			}
+		}
+		scanner.close();
+	}
+}

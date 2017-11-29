@@ -1,0 +1,41 @@
+package com.lanou;
+/**
+ * 
+ * 比较完整的结构
+ *
+ */
+public class Demo_2 {
+	// 成员变量	---	对象属性
+	private int a;
+	// 静态变量	---	类属性
+	public static double PI = 2.1415926;
+	// 构造方法
+	public Demo_2(int a) {
+		super();
+		this.a = a;
+	}
+	public Demo_2() {
+		super();
+		System.out.println("构造方法执行");
+	}
+	
+	// 成员方法
+	public void test() {
+		
+	}
+	
+	// 静态方法
+	public static void test2() {
+		
+	}
+	
+	// 加载类的时候,会调用代码块
+	// 代码块
+	{
+		System.out.println("非静态代码块");
+	}
+	// 静态代码块
+	static {
+		System.out.println("静态代码块");
+	}
+}

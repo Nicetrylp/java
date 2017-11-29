@@ -1,0 +1,32 @@
+package com.homework;
+
+public class Demo1 {
+	public static void main(String[] args) {
+		Zi z = new Zi();	//fu zi 
+		z.show();		//30 20 10
+		}
+}
+class Fu{
+	public int num = 10;
+	public Fu() {
+		System.out.println("fu");
+	}
+}
+
+	
+class Zi extends Fu{
+	public int num = 20;
+	public Zi() {
+		System.out.println("zi");
+	}
+	
+	public void show(){
+	int num = 30;
+	System.out.println(num);		//30
+	System.out.println(this.num);	//20
+	System.out.println(super.num);	//10
+	}
+	}
+	class Test1_Extends {
+	
+	}

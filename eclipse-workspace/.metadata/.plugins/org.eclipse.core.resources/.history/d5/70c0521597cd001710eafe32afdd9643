@@ -1,0 +1,11 @@
+package com.pinhong;
+/**
+ * 
+ * 用户类
+ * 用户名和密码
+ *
+ */
+public class User {
+	private String userName;
+	private String password;
+}

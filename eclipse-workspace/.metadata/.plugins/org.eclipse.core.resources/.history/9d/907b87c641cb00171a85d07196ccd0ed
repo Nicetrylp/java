@@ -1,0 +1,53 @@
+package com.lanou3g;
+/*
+ * super:代表父类
+ * 1.super可以修饰属性, 代表父类的属性		super.xxx
+ * 2.super可以修饰构造方法		super()		代表父类的构造方法
+ * 或者super(...)
+ */
+
+public class SuperDemo {
+	public static void main(String[] args) {
+		
+	}
+}
+/*
+ * java类型的默认父类是object
+ * 
+ */
+class Father{
+	public String name;
+	public double money;
+	public String wife;
+	public static String sex;
+	public Father() {
+		super();
+		System.out.println("这里是爹方法");
+	}
+	
+}
+
+class Son extends Father{
+	public String wife;
+	public static String sex;
+	
+
+	public Son() {
+		super();	// 执行父类的构造方法
+		// TODO Auto-generated constructor stub
+		System.out.println("构造子方法");
+	}
+
+
+	public void showWife(){
+		
+		System.out.println(this.wife);
+		
+		System.out.println(super.wife);
+		
+		// 静态属性也可以使用super   但是建议用类名来点
+		System.out.println(super.sex);
+		
+		System.out.println(this.sex);
+	}
+}

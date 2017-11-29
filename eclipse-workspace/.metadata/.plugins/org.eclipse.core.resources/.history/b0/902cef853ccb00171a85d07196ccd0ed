@@ -1,0 +1,9 @@
+package com.lanou3g;
+
+
+public class Print {
+	// 品牌
+	public String band;
+	public double price;
+	
+}

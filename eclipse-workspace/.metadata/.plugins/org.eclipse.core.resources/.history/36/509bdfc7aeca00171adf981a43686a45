@@ -1,0 +1,131 @@
+package com.lanou3g;
+
+import java.util.Scanner;
+
+public class Manage {
+	Book book = new Book();
+	BookStores bookStores = new BookStores();
+	
+	public void start() {
+		System.out.println("欢迎来到库存管理后台,请输入 您的管理员密码");
+		password();
+		showMeun();
+//		bookStores.books=null;
+		run();
+		System.out.println("退出成功");
+	}
+	public void password() {
+		int i = 1;
+		Scanner scanner = new Scanner(System.in);
+		String password = scanner.nextLine();
+		if("123".equalsIgnoreCase(password)) {
+			System.out.println("登录成功");
+		}else {
+			do {
+			System.out.println("密码错误,请重新输入:");
+			password = scanner.nextLine();
+			if("123".equalsIgnoreCase(password)) {
+				System.out.println("登录成功");
+				break;
+			}else {
+				i++;
+			}
+			}while(i<3);
+			if(i==3) {
+				System.out.println("密码错误次数超过三次,退出系统");
+				System.exit(0);
+			}
+		}
+		
+	}
+	public  void showMeun() {
+		System.out.println("---------欢迎进入库存管理菜单,请选择----------");
+		System.out.println("1:查看库存");
+		System.out.println("2:修改库存");
+		System.out.println("3:添加库存");
+		System.out.println("4:删除库存");
+		System.out.println("0:退出");
+		System.out.println("---------------------------------------");
+	}
+	
+	public void run() {
+		look:while(true) {
+			Scanner scanner = new Scanner(System.in);
+			int num = scanner.nextInt();
+			if(num == 0)
+				break look;
+			switch(num) {
+			case 1:
+			{
+				bookStores.lookTrade();
+				break;
+			}
+			case 2:
+			{
+				changeBook();
+				break;
+			}
+			case 3:
+			{
+				addBook();
+				bookStores.lookTrade();
+				break;
+			}
+			case 4:
+			{
+				deleteBook();
+				break;
+			}
+			case 0:
+				break;
+			default:
+			{
+				System.out.println("错误,请重新输入");
+				run();
+				break;
+			}
+			}
+		}
+	}
+	public void addBook() {
+		System.out.println("-------------请添加商品-------------");
+		Scanner scanner = new Scanner(System.in);
+		// 创建一本新书
+		book = new Book();
+				
+		System.out.println("请输入书籍名称:");
+				String name = scanner.nextLine();
+				book.setName(name);
+				
+				System.out.println("请输入书籍价格:");
+				double price = scanner.nextDouble();
+				// 加nextline保平安
+				scanner.nextLine();
+				book.setPrice(price);
+				
+				System.out.println("请输入书籍出版社:");
+				String versions = scanner.nextLine();
+				book.setBookMan(versions);
+				
+				System.out.println("请输入书籍编号:");
+				int quantity = scanner.nextInt();
+				scanner.nextLine();
+				book.setBookSN(quantity);
+				
+				bookStores.addBook(book);	
+	}
+	public void deleteBook() {
+		bookStores.lookTrade();
+		System.out.println("请输入你想删除的图书编号");
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+		bookStores.deleteBook(num);
+		bookStores.lookTrade();
+	}
+	public void changeBook() {
+		System.out.println("请输入你想修改的书编号:");
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+		bookStores.changeTrade(num);
+	}
+}

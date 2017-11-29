@@ -1,0 +1,76 @@
+package com.game;
+
+import java.util.Scanner;
+
+/**
+ * 玩家类
+ * 
+ *
+ */
+public class Player {
+	private String name;
+	private int score;
+	private int fist;
+	// 构造函数
+	public Player() {
+		
+	}
+	// 有参构造函数
+	public Player(String name) {
+		super();
+		this.name = name;
+	}
+
+	// get/set方法
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	// 玩家出拳方法
+	public int showFist() {
+		System.out.println("请选择你要出的拳:");
+		System.out.println("1: 石头\t2:剪刀\t3:布\t0:退出");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		switch (key) {
+		case 0:
+			return 0;
+			
+		case 1:
+		{
+			fist = key;
+			System.out.println("你出的 是:\t石头");
+			break;
+		}
+		case 2:
+		{
+			fist = key;
+			System.out.println("你出的 是:\t剪刀");
+			break;
+		}
+		case 3:
+		{
+			fist = key;
+			System.out.println("你出的 是:\t布");
+			break;
+		}
+		default:
+		{
+			System.out.println("error,请重新输入");
+			showFist();
+			break;
+		}
+		}
+		
+		return key;
+	}
+}

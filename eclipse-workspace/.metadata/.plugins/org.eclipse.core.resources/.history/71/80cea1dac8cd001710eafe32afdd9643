@@ -1,0 +1,11 @@
+package com.pinhong;
+
+public class Test {
+
+	public static void main(String[] args) {
+		NewOperation.addNews();
+		NewOperation.addNews();
+		NewOperation.inquireNews();
+	}
+
+}

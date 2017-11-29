@@ -1,0 +1,107 @@
+package com.pinhong;
+
+import java.util.Scanner;
+
+public class Process {
+	
+	static boolean boo1 = false;
+	
+	public static void start() {
+		System.out.println("欢迎使用企业宣传专栏");
+		while(true)
+		{
+		menuLogin();
+		if(boo1)
+			break;
+		}
+		System.out.println("欢迎进入功能板块");
+		while(true) {
+			menuMain();
+		}
+	}
+	
+	public static void menuLogin() {		
+		System.out.println("1.注册\t2.登录");
+		System.out.println("请选择...");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		switch (key) {
+		case 1:
+			Userdao.register();
+			break;
+		case 2:
+		{
+			if(Userdao.login())
+			boo1 = true;
+			break;
+		}
+		default:
+			{
+				System.err.println("error");
+				menuLogin();
+				break;
+			}
+		}
+	}
+	public static void menuMain() {
+		System.out.println("1.新闻信息管理");
+		System.out.println("2.产品信息管理");
+		System.out.println("3.消息评论信息管理");
+		System.out.println("请选择...");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		switch (key) {
+		case 1:{
+			System.out.println("欢迎进入新闻菜单");
+			menuNews();
+			break;
+		}
+		case 2:{
+			break;
+		}
+		case 3:{
+			break;
+		}
+		default:{
+			System.out.println("error");
+			menuMain();
+			break;
+		}
+		}
+	}
+	public static void menuNews() {
+		System.out.println("1.添加新闻");
+		System.out.println("2.修改新闻");
+		System.out.println("3.删除新闻");
+		System.out.println("4.查询新闻");
+		System.out.println("请选择...");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		switch (key) {
+		case 1:
+			NewOperation.addNews();
+			break;
+		case 2:{
+			System.out.println("请输入要修改的的新闻的标题");
+			String title = scanner.nextLine();
+			NewOperation.amendNews(title);
+			break;
+		}
+		case 3:{
+			System.out.println("请输入要修改的的新闻的标题");
+			String title = scanner.nextLine();
+			NewOperation.deleteNews(title);
+			break;
+		}
+		case 4:{
+			NewOperation.inquireNews();
+			break;
+		}
+		default:{
+			System.out.println("error");
+			menuNews();
+			break;
+		}
+		}
+	}
+}

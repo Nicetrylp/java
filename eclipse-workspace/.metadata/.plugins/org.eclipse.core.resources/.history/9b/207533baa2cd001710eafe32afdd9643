@@ -1,0 +1,47 @@
+package com.pinhong;
+
+import java.util.Arrays;
+
+/**
+ * 
+ * 属性:
+ * 		news[] 相当于数据库	静态
+ * 
+ * 方法:
+		添加,修改,删除,查询(增删改查)
+ *
+ */
+public class NewOperation {
+	static News[]news = new News[10];
+	
+	public static void addNews() {
+		News New = new News();
+		System.out.println(New);
+		New.add(New);
+		for(int i = 0;i < news.length;++i) {
+			if(news[i] == null) {
+				news[i] = New;
+				return;
+			}
+		}
+		news = Arrays.copyOf(news, news.length + 5);
+		// addNews(New);
+		news[news.length-5] = New;
+	}
+	
+	public void amendNews() {
+		
+	}
+	
+	public void deleteNews() {
+		
+	}
+	
+	public static void inquireNews() {
+		for(int i=0;i<news.length;++i)
+		{
+			if(news[i]!=null)
+				news[i].look();
+		}
+	}
+}

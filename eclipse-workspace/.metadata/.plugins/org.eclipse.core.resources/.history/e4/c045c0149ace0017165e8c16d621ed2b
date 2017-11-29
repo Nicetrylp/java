@@ -1,0 +1,12 @@
+package com.lanou3g;
+
+import java.util.Random;
+
+public class Demo_2 {
+	public static void main(String[] args) {
+		for(int i=0;i<10;i++) {
+		int a = new Random().nextInt(1);
+		System.out.println(a);
+		}
+	}
+}

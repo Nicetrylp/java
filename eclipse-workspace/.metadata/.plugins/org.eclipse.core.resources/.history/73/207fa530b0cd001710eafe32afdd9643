@@ -1,0 +1,66 @@
+package com.pinhong;
+
+import java.util.Scanner;
+
+/**
+ * 
+ * 新闻类
+ * 属性;	
+		时间 time	内容:content	作者:author	标题:title
+	方法:
+		增删改查
+ *
+ */
+public class News {
+	static String time;			//时间
+	static String content;		//内容
+	static String author;		//作者
+	static String title;		//标题
+	
+	public News() {
+		super();
+
+	}
+	
+	public static String getTime() {
+		return time;
+	}
+
+	public static void setTime(String time) {
+		News.time = time;
+	}
+
+	public static String getContent() {
+		return content;
+	}
+
+	public static void setContent(String content) {
+		News.content = content;
+	}
+
+	public static String getAuthor() {
+		return author;
+	}
+
+	public static void setAuthor(String author) {
+		News.author = author;
+	}
+
+	public static String getTitle() {
+		return title;
+	}
+
+	public static void setTitle(String title) {
+		News.title = title;
+	}
+
+	public void add(News news) {
+		
+	}
+	public void look() {
+		System.out.println(getTime());
+		System.out.println(getTitle());
+		System.out.println(getAuthor());
+		System.out.println(getContent());
+	}
+}
