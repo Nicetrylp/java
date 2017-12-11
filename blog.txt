@@ -1,0 +1,98 @@
+ 反射有什么用?
+
+    反射可以在只知道类名的情况下,获取类的所有属性和方法
+
+    反射通常和泛型一起使用
+
+    使用反射和泛型,可以增强程序的扩展性
+
+反射中常用的方法
+
+1.通过字符串 , 获取类对象
+
+    Class clazz  =  Class.forName("字符串");
+
+    这里的字符串要求是 类名,并且是完整的类名
+
+    eg : 有一个在com.nicetry.demo包下有一个  Student类
+
+     则类名为   com.nicetry.demo.Student
+
+// 这里可以得到一个类对象
+// 类名需要带上包名  com.nicetry.demo.Student
+// 返回一个类对象
+Class clazz = Class.forName("类名");
+
+
+2.根据类对象,创建该类的对象
+
+   类对象.newInstance();
+
+// 这里clazz是一个类对象
+Object obj = clazz.newInstance();
+
+
+3. 根据类对象获取属性对象
+
+    Field  field  = 类对象.getField("属性名");   这是第一种方法
+
+    Field field   =  类对象.getDeclaredField("属性名");   这是第二种方法
+
+    List   list  = 类对象.getDeclaredFields();    这是第三种方法,返回的是一个集合,集合里面是所有的属性对象
+
+// 根据类对象获取了name的属性对象
+Field field =clazz.getField("name");
+
+// 根据类对象获取属性对象的第二种方法,通过这种方法获取的属性对象,可以修改private修饰的属性的值
+Field filed = clazz.getDeclaredField("name")
+
+// 根据类对象,获取了类的所有属性对象,返回一个list集合
+List fields = clazz.getDeclaredFileds();
+
+4.根据类对象获取方法对象
+
+    第一种方法:  
+
+Method method = 类对象.getMethod("方法名",参数的类型);   这里的参数类型也是一个类对象,这里的参数,有多少写多少就好.
+
+    第二种方法:
+
+Method method = 类对象.getDeclareMethod("方法名",参数的类型);
+
+    第三种方法,返回一个方法对象的集合
+
+List methods = 类对象. getDeclareMethods();
+
+// 获取了xxx的方法对象,这里的Object.class...代表这个一个类对象,类型是Obj
+Method method = clazz.getMethod("xxx",Object.class)
+// 同上
+Method method = clazz.getDeclaredMethod("xxx",Obj.class)
+// 获取所有方法对象,返回一个list
+List methods =clazz.getDeclaredMethods();
+
+
+5. 通过属性对象给属性赋值
+
+属性对象.set(类名,属性值);
+
+如果属性是private修饰的,则需要先打破私有权限
+
+属性对象.setAccessible(true);    这一语句可以打破私有权限
+
+Field name = clazz.getDeclaredField("name");
+name.setAccessible(true);
+name.set(obj,"张三"); //obj代表任意类型 
+
+
+6. 通过方法对象调用方法
+
+方法对象.invike(类名,需要传入的参数);
+
+同样,当方法是私有的时候,需要先打破私有权限
+
+方法对象.setAccessible(true);
+
+Method method= clazz.getDeclaredField("show",String.class);
+method.setAccessible(true);
+method.invike(obj,"aaa");
+// 相当于  obj.method("aaa");
