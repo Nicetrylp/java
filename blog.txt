@@ -94,5 +94,5 @@ name.set(obj,"张三"); //obj代表任意类型
 
 Method method= clazz.getDeclaredField("show",String.class);
 method.setAccessible(true);
-method.invike(obj,"aaa");
+method.invike(obj,"aaa");111
 // 相当于  obj.method("aaa");
